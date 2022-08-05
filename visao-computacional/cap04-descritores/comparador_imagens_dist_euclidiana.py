@@ -36,11 +36,6 @@ class ComparadorImagens:
             dist_euc = distance.euclidean(dic_imagens[nome_imagem], descritor_ref)
             print(f"Distância de '{nome_imagem_ref}' até '{nome_imagem}' é igual a {dist_euc}")
 
-            # Carrega a imagem
-            dir_imagem = f"{img_dir}/{nome_imagem}"
-            img = Image.open(dir_imagem)
-            img.show(title=f'Dist Euclidiana de {nome_imagem} = {dist_euc}', )
-
 
     def carregar_imagens(diretorio: str) -> dict:
 
