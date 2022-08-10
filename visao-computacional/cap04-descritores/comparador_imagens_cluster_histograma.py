@@ -65,40 +65,4 @@ class AgrupadorImagens:
         
         return self.__df_imagens.copy()
 if __name__ == "__main__":
-    #diretorio_corrente = os.path.dirname(os.path.abspath(__file__))
-    #diretorio_imagens = f'{diretorio_corrente}/elefantes'
-    #img = Image.open(f'{diretorio_imagens}/elefante01.jpg')
-
-    #img.histogram()
-
-    #img.show('Elefante 01')
-
-    dic = {'col1': list(range(1000))}
-    df = pd.DataFrame(dic, index=list([f'row{n}' for n in range(1000)]))
-
-    print(type(list(df['col1'])))
-    
-    raise ValueError('stop')
-    t1 = time()
-    features = {}
-    for i, row in df.iterrows():
-        # Adiciona ao dataframe
-        features[row['col1'] + 100] = i
-    
-    df['features'] = features
-
-    t2 = time() - t1
-    print(f'tempo exemplo 1 = {t2}')
-    print(df)
-
-    dic2 = {'col10': list(range(1000)), 'features': None}
-    df2 = pd.DataFrame(dic2, index=list([f'row{n}' for n in range(1000)]))
-    
-    t3 = time()
-    for i, row in df2.iterrows():
-
-        df2.at[i, 'features'] = [1,2,3,row['col10'] + 100]
-
-    t4 = time() - t3
-    print(f'tempo exemplo 2 = {t4}')
-    print(df2)
+    pass
