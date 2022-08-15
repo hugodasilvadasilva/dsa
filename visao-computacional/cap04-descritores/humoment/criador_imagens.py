@@ -1,5 +1,15 @@
 # Gerador de imgens de 3 tipos diferentes: triganulo, retangulo/quadrado e circulo
 
+# Para gerar 10 círculos no diretório 'imagens' com o prefixo 'c_' execute o 
+# comando abaixo:
+
+# $ python3 criador_imagens.py -d 'imagens' -q 10 -t 'circulo' -p 'c_'
+
+# Para gerar 5 relangulos no diretório 'imagens' com o prefixo 'r_' execute o 
+# comando abaixo
+
+# $ python3 criador_imagens.py -d 'imagens' -q 5 -t 'retangulo' -p 'r_'
+
 # recebe os argumentos
 import argparse
 import logging
