@@ -4,6 +4,8 @@ import cv2
 import criador_imagens
 import setlog
 import numpy as np
+import argparse
+import criador_imagens as ci
 from PIL import Image
 from imutils import paths
 from sklearn.metrics.pairwise import pairwise_distances
@@ -111,8 +113,18 @@ if __name__ == "__main__":
 
     setlog.set_log(logging.DEBUG)
 
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-d", "--diretorio", required=True, help="diretório onde as imagens criadas estão/serão armazenadas")
+    ap.add_argument("-qr", "--quantidade_retangulos", type=int, default=1, help="quantidade de retângulos que devem ser criadas")
+    ap.add_argument("-qc", "--quantidade_circulos", type=int, default=10, help="quantidade de círculos que devem ser criadas")
+    args = vars(ap.parse_args())
+
+    # Solicita a criação dos círculos e em seguida dos retângulos
+    ci.gerar_circulos(diretorio=args['diretorio'], prefixo='c_', qtd=args['quantidade_circulos'])
+    ci.gerar_retangulos(diretorio=args['diretorio'], prefixo='r_', qtd=args['quantidade_retangulos'])
+
     # Obtém os Hu moments
-    t_img_mh = extrair_humoments('imagens')
+    t_img_mh = extrair_humoments(dir_imagens=args['diretorio'])
 
     # Extrai somente os momentos hu
     momentos_hu = [val[1] for val in t_img_mh]
